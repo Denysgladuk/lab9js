@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Замовлення меблів</title>
+</head>
+<body>
+    <h2>Замовлення меблів</h2>
+    <form id="orderForm" onsubmit="validateForm(event)">
+        <label for="furniture">Виберіть виріб:</label>
+        <select id="furniture">
+            <option value="шафа">Шафа</option>
+            <option value="стіл">Стіл</option>
+            <option value="сервант">Сервант</option>
+        </select><br><br>
+
+        <label for="material">Виберіть матеріал:</label>
+        <select id="material">
+            <option value="дуб">Дуб</option>
+            <option value="горіх">Горіх</option>
+            <option value="бук">Бук</option>
+        </select><br><br>
+
+        <label for="quantity">Кількість:</label>
+        <input type="number" id="quantity" min="1"><br><br>
+
+        <button type="submit">Відправити замовлення</button>
+    </form>
+
+    <script src="order.js"></script>
+  <a href="trig_functions.html">Друге завдання</a>
+</body>
+</html>

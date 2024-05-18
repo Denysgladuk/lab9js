@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обчислення тригонометричних функцій</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Обчислення тригонометричних функцій</h2>
+    <label for="angle">Кут в градусах (0-90):</label>
+    <input type="number" id="angle" min="0" max="90"><br><br>
+
+    <label for="function">Функція:</label>
+    <select id="function">
+        <option value="sin">Синус</option>
+        <option value="cos">Косинус</option>
+        <option value="tan">Тангенс</option>
+    </select><br><br>
+
+    <button onclick="calculateTrigonometricFunction()">Обчислити</button><br><br>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateTrigonometricFunction() {
+            const angle = parseInt(document.getElementById('angle').value);
+            const selectedFunction = document.getElementById('function').value;
+
+            if (isNaN(angle) || angle <= 0 || angle >= 90) {
+                alert('Кут повинен бути більше нуля и меньше 90°');
+                return;
+            }
+
+            let result;
+            if (selectedFunction === 'sin') {
+                result = Math.sin(degreesToRadians(angle));
+            } else if (selectedFunction === 'cos') {
+                result = Math.cos(degreesToRadians(angle));
+            } else if (selectedFunction === 'tan') {
+                result = Math.tan(degreesToRadians(angle));
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `${selectedFunction}(${angle}°) = ${result.toFixed(2)}`;
+        }
+
+        function degreesToRadians(degrees) {
+            return degrees * (Math.PI / 180);
+        }
+    </script>
+    <a href="index.html">Повернутися назад</a>
+</body>
+</html>
